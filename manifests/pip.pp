@@ -67,7 +67,7 @@ define python::pip (
   Numeric $timeout                                           = 1800,
   String[1] $log_dir                                         = '/tmp',
   Array[String] $path                                        = ['/usr/local/bin','/usr/bin','/bin', '/usr/sbin'],
-  String[1] $exec_provider                                   = 'shell'
+  String[1] $exec_provider                                   = 'shell',
 ){
   $python_provider = getparam(Class['python'], 'provider')
   $python_version  = getparam(Class['python'], 'version')
@@ -240,7 +240,7 @@ define python::pip (
     environment => $environment,
     timeout     => $timeout,
     path        => $_path,
-    provider    => $exec_provider
+    provider    => $exec_provider,
   }
 
 }
